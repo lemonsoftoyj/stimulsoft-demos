@@ -1,0 +1,24 @@
+﻿@using Stimulsoft.Report.Mvc;
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<script>
+    function switchReport() {
+        jsStiNetCoreViewer.postInteraction({ action: "GetReport", new: true});
+    }
+</script>
+
+<div class="text-center">
+    <button onclick="switchReport()">Switch report</button>
+
+    @Html.StiNetCoreViewer("StiNetCoreViewer", new StiNetCoreViewerOptions()
+{
+        Actions =
+        {
+            GetReport = "GetReport",
+            ViewerEvent = "ViewerEvent"
+        }
+    })
+</div>
